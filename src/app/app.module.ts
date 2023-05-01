@@ -40,7 +40,7 @@ import { ProcessFormComponent } from './process/process-form/process-form.compon
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxSpinnerModule,
+    NgxSpinnerModule.forRoot({ type: 'square-jelly-box' }),
     SharedModule
   ],
   providers: [

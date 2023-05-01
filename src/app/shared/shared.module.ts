@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ProcessDynamicFormComponent } from './process-dynamic-form/process-dynamic-form.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -18,13 +19,15 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxSpinnerModule,
   ],
   exports:[
     DynamicFormComponent,
     MatDialogModule,
     ProcessDynamicFormComponent,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxSpinnerModule,
   ]
 })
 export class SharedModule { }

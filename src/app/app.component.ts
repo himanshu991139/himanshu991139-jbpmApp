@@ -22,8 +22,8 @@ export class AppComponent {
       queryParams: { user: username },
     });
   }
-  logOut(){
-    this.authenticateService.logOut()
+  logOut() {
+    this.authenticateService.logOut();
     window.location.reload();
   }
 }
