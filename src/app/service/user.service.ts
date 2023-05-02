@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class UserService {
   baseUrl = environment.baseUrl;
   private url = 'http://localhost:3000/users';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private authService:AuthenticationService) {}
 
   getUser() {
     return this.http.get(this.url);
@@ -22,13 +23,15 @@ export class UserService {
     );
   }
   getTaskWithStatus(status) {
+    const user=this.authService.getUserDetail()
     return this.http.get(
-      `${this.baseUrl}/queries/tasks/instances/pot-owners?user=wbadmin&status=${status}&page=0&pageSize=10&sortOrder=true`
+      `${this.baseUrl}/queries/tasks/instances/pot-owners?user=${user}&status=${status}&page=0&pageSize=10&sortOrder=true`
     );
   }
   getTasks(): any {
+    const user=this.authService.getUserDetail()
     return this.http.get(
-      `${this.baseUrl}/queries/tasks/instances/pot-owners?user=wbadmin&page=0&pageSize=10&sortOrder=true`
+      `${this.baseUrl}/queries/tasks/instances/pot-owners?user=${user}&page=0&pageSize=10&sortOrder=true`
     );
   }
   getTasksInput(containerId: string, taskId: string) {
