@@ -67,9 +67,9 @@ export class UserService {
   getProcessFromContainerId(containerId: string) {
     return this.http.get(`${this.baseUrl}/containers/${containerId}/processes`);
   }
-  startProcessInstance(reqBody: any) {
+  startProcessInstance(reqBody: any,containerId:string,processId:string) {
     return this.http.post(
-      `${this.baseUrl}/containers/LeaveTracker_1.0.0-SNAPSHOT/processes/LeaveTracker.LeaveTracker/instances`,
+      `${this.baseUrl}/containers/${containerId}/processes/${processId}/instances`,
       reqBody
     );
   }

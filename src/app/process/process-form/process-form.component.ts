@@ -43,7 +43,8 @@ export class ProcessFormComponent implements OnInit {
     const leaveRequest = {
       ...data.formObj.getRawValue(),
     };
-    this.userService.startProcessInstance(leaveRequest).subscribe({
+    this.userService.startProcessInstance(leaveRequest,this.processDetail.containerId,
+      this.processDetail.processId).subscribe({
       next: (res) => {
         this.router.navigateByUrl('/');
       },
